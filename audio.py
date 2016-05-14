@@ -45,7 +45,7 @@ def record(filename):
 def play(filename):
 	file_location = os.path.join(RECORDINGS, filename)
 
-	if not os.path.find(file_location):
+	if not os.path.isfile(file_location):
 		print "Invalid file"
 		exit(-1)
 
@@ -71,4 +71,5 @@ def play(filename):
 
 
 if __name__ == "__main__":
+	record("record_one")
 	play("record_one")
