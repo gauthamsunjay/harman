@@ -6,7 +6,7 @@ CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
-RECORD_SECONDS = 7
+RECORD_SECONDS = 5
 RECORDINGS = os.path.join(os.getcwd(), "recordings")
 
 
@@ -71,5 +71,13 @@ def play(filename):
 
 
 if __name__ == "__main__":
-	record("record_one")
-	play("record_one")
+	import sys
+	if len(sys.argv) < 2:
+		print "USAGE: python audio.py <play/record>"
+		exit(-1)
+
+	if sys.argv[1] == "play":
+		play("record_one")
+
+	elif sys.argv[1] == "record":
+		record("record_one")
